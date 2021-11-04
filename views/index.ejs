@@ -1,0 +1,20 @@
+<%- include("./partials/header") %>
+<div class="container">
+  <form action="/add/todo" method="post">
+    <div class="mb-3 my-4">
+      <label for="exampleInputEmail1" class="form-label">Add Todo</label>
+      <input type="text" name="todo" class="form-control " placeholder="Write your todo here.." id="exampleInputEmail1"
+        aria-describedby="emailHelp">
+    </div>
+    <button type="submit" class="btn btn-primary">Add</button>
+  </form>
+
+  <ul class="list-group my-5">
+    <% todo.forEach((t=>{ %>
+            <li class="list-group-item d-flex"><%=t.todo %> <div class="float-right"> <a href="delete/todo/<%=t._id %>" class="float-right btn btn-danger ">Delete</a></div>  </li>
+         
+      <%  })) %>
+
+  </ul>
+</div>
+<%- include("./partials/footer") %>
